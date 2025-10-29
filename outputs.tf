@@ -1,0 +1,6 @@
+output "vms" {
+  value = [
+    { vm_web = ["instance_name: ${yandex_compute_instance.platform.name}", "ip_address: ${yandex_compute_instance.platform.network_interface[0].nat_ip_address}", "fqdn: ${yandex_compute_instance.platform.hostname}"] },
+    { vm_db = ["instance_name: ${yandex_compute_instance.platform-db.name}", "ip_address: ${yandex_compute_instance.platform-db.network_interface[0].nat_ip_address}", "fqdn: ${yandex_compute_instance.platform-db.hostname}"] }
+  ]
+}
