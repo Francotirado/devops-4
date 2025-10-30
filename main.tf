@@ -17,8 +17,8 @@ data "yandex_compute_image" "ubuntu" {
 
 resource "yandex_compute_instance" "platform" {
   name        = local.web
-  hostname = "netology-develop-platform-web"
-  platform_id = "standard-v3"
+  hostname = local.web
+  platform_id = var.vms_platform_id
   resources {
     cores = var.vms_resources.web.cores
     memory = var.vms_resources.web.memory
@@ -61,9 +61,9 @@ data "yandex_compute_image" "ubuntu-db" {
 
 resource "yandex_compute_instance" "platform-db" {
   name        = local.db
-  hostname = "netology-develop-platform-db"
-  platform_id = "standard-v3"
-  zone = "ru-central1-b"
+  hostname = local.db
+  platform_id = var.vms_platform_id
+  zone = var.vm_db_default_zone
   resources {
     cores = var.vms_resources.db.cores
     memory = var.vms_resources.db.memory
