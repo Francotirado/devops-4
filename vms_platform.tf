@@ -22,6 +22,11 @@ variable "vm_db_image" {
   default = "ubuntu-2004-lts"
 }
 
+variable "vms_platform_id" {
+  type = string
+  default = "standard-v3"
+}
+
 #variable "vm_db_cores" {
 #  type = number
 #  default = 2
